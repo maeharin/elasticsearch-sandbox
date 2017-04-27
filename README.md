@@ -1,7 +1,7 @@
 # elasticaserch sandbox
 
-elasticsearchの練習をするためのリポジトリ
-サンプルデータとして、movielens(https://grouplens.org/datasets/movielens/)のデータを使っています
+- elasticsearchの練習をするためのリポジトリ
+- サンプルデータとして、movielens(https://grouplens.org/datasets/movielens/)のデータを使っています
 
 ## dependencies
 
