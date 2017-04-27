@@ -27,6 +27,8 @@ $ docker-compose up
 
 ## embulkでデータを投入
 
+embulkインストール方法：https://github.com/embulk/embulk#linux--mac--bsd
+
 ```
 $ embulk run embulk/movies_config.yml
 $ embulk run embulk/ratings_config.yml
