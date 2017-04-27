@@ -1,6 +1,7 @@
-# elasticaserch cluster with docker sample
+# elasticaserch sandbox
 
-for my experiment
+elasticsearchの練習をするためのリポジトリ
+サンプルデータとして、movielens(https://grouplens.org/datasets/movielens/)のデータを使っています
 
 ## dependencies
 
