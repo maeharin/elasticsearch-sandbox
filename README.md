@@ -12,11 +12,15 @@ elasticsearchの練習をするためのリポジトリ
 
 ## how to start
 
+OSX with Docker Toolboxで使う際には、以下のハックが必要
+
 ```
 # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
 $ docker-machine ssh
 $ sudo sysctl -w vm.max_map_count=262144
 ```
+
+dockerコンテナ起動
 
 ```
 $ docker-compose up
