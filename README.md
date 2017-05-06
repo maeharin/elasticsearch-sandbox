@@ -34,7 +34,11 @@ $ docker-compose up
 
 embulkインストール方法：https://github.com/embulk/embulk#linux--mac--bsd
 
+- Java SDKのインストールが必要。 http://www.oracle.com/technetwork/java/javase/downloads/index.html
+- embulk/movies_config.ymlとembulk/ratings_config.ymlのout:nodesのIPを自分のDockerIPに変更する。
+
 ```
+$ embulk gem install embulk-output-elasticsearch
 $ embulk run embulk/movies_config.yml
 $ embulk run embulk/ratings_config.yml
 ```
@@ -102,7 +106,7 @@ $ embulk run embulk/ratings_config.yml
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "match": {
         "title": "rock star"
@@ -155,15 +159,15 @@ GET movielines/movies/_count
 ```json
 GET _search
 {
-  "query": { 
-    "bool": { 
+  "query": {
+    "bool": {
       "must": [ # queryコンテキスト（_scoreに影響）
-        { "match": { "title":   "Search"        }}, 
+        { "match": { "title":   "Search"        }},
         { "match": { "content": "Elasticsearch" }}  
       ],
       "filter": [ # filterコンテキスト（_scoreに影響なし）
-        { "term":  { "status": "published" }}, 
-        { "range": { "publish_date": { "gte": "2015-01-01" }}} 
+        { "term":  { "status": "published" }},
+        { "range": { "publish_date": { "gte": "2015-01-01" }}}
       ]
     }
   }
@@ -203,7 +207,7 @@ GET _search
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "match": {
       "title": "school rock"
@@ -212,7 +216,7 @@ GET movielines/movies/_search
 }
 
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "match": {
       "title": {
@@ -230,7 +234,7 @@ fooとbaaの間に未知の単語をslop個許容したフレーズを検索
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "match_phrase": {
       "title": {
@@ -248,7 +252,7 @@ GET movielines/movies/_search
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "multi_match": {
       "query": "musical",
@@ -283,7 +287,7 @@ GET movielines/movies/_search
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "term": {
       "title": "school of rock"
@@ -315,7 +319,7 @@ filterと組み合わせる時の主力
 - must, filter, should, must_notが使える
 
 ```json
-GET movielines/movies/_search 
+GET movielines/movies/_search
 {
   "query": {
     "bool": {
@@ -347,17 +351,17 @@ GET movielines/movies/_search
 
 ```json
 GET movielines/movies/_search
-{ 
+{
   "query": {
     "function_score": {
       "query": {
         "match": {
           "title": "rock"
         }
-      }, 
+      },
       "script_score": {
         "script": {
-          "lang": "painless", 
+          "lang": "painless",
           "params": {
             "ranking": {
               "373": 1000000000,
